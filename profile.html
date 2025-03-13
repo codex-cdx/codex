@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Мой профиль</h1>
+    <div class="profile-info">
+      <div id="profile-avatar">A</div>
+      <h2 id="profile-role">Роль: Не определена</h2>
+      <p>TON Кошелек: <span id="wallet-address">Не подключен</span></p>
+      <p>Баланс: <span id="wallet-balance">0 TON</span></p>
+      <p>Рейтинг: <span id="user-rating">0</span>/5</p>
+      <button onclick="window.location.href='index.html'">Назад</button>
+    </div>
+
+    <h2>Активные задания</h2>
+    <ul id="active-tasks" class="task-list"></ul>
+
+    <h2>Выполненные задания</h2>
+    <ul id="completed-tasks" class="task-list"></ul>
+
+    <div id="chat-section" class="chat-container">
+      <h2>Чат: <span id="chat-task-title"></span></h2>
+      <div id="chat-messages" class="chat-messages"></div>
+      <form id="chat-form" onsubmit="event.preventDefault(); sendMessage()">
+        <textarea id="chat-input" placeholder="Сообщение" required></textarea>
+        <button type="submit">Отправить</button>
+        <button type="button" id="close-chat-btn" onclick="closeChat()">Закрыть</button>
+      </form>
+      <div id="report-section" style="display: none;">
+        <h3>Сдать отчет</h3>
+        <input type="file" id="report-file" accept=".pdf,.docx,.txt" required>
+        <button onclick="submitReport()">Сдать</button>
+      </div>
+      <div id="rating-section" style="display: none;">
+        <h3>Оценить</h3>
+        <input type="number" id="rating-input" min="1" max="5" required>
+        <button onclick="submitRating()">Оценить</button>
+      </div>
+    </div>
+  </div>
+  <script src="profile.js"></script>
+</body>
+</html>
